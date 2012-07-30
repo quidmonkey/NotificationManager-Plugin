@@ -10,4 +10,4 @@ NotificationManager-Plugin Changelog
 	- Added .align property
 	- Added two optional parameters to .draw(): align - specify an alignment from ig.Font.ALIGN, and text - specify a text string. These can be used if calling the .draw() directly for an ig.Notification vs. from the ig.NotificationManager
 	- Changed .fadetime from an ig.Timer object to a value
-	- Renamed class ig.Nofication from Notification
+	- Renamed class ig.Notification from Notification

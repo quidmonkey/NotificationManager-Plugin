@@ -1,4 +1,6 @@
-NotificationManager Plugin<br>
+NotificationManager Plugin
+==========================
+
 Written by Abraham Walters<br>
 v1.0 - July 2011<br>
 v1.1 - July 2012<br>

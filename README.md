@@ -1,8 +1,8 @@
 # NotificationManager Plugin
 
 Written by Abraham Walters<br>
-v1.0 - July 2011<br>
-v1.1 - July 2012<br>
+* v1.0 - July 2011
+* v1.1 - July 2012
 
 This plugin extends the Font class and allows you to  move it and have
 it fade after a specified amount of time. The plugin also provides a 

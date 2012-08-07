@@ -1,5 +1,4 @@
-NotificationManager-Plugin Changelog
-====================================
+# NotificationManager-Plugin Changelog
 
 - Refactored ig.NotificationManager
 	- Added .add() - Adds any Notification vs. .spawn(), which instantiates and adds a new Notification

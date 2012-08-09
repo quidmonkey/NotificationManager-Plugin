@@ -12,7 +12,7 @@ for updating and drawing.
 To use the plugin you will need to create an instance of the
 NotificationManager in your game like so:
 ```javascript
-myNoteMgr: new NotificationManager(),
+myNoteMgr: new ig.NotificationManager(),
 ```
 You will then need to add myNoteMgr.update() to ig.game.update()
 and myNoteMgr.draw() to ig.game.draw().  Make sure you add 
@@ -25,7 +25,7 @@ ig.game.myNoteMgr.spawn('media/font.png', 'string', x, y, settings);
 Or you can create a Notification and then feed it to the NotificationManager
 later:
 ```javascript
-var note = new Notification( 'media/font.png', 'string', x, y, settings );
+var note = new ig.Notification( 'media/font.png', 'string', x, y, settings );
 //other code
 ig.game.myNoteMgr.add( note );
 ```

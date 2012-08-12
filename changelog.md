@@ -4,7 +4,7 @@
 
 - Fixed ig.Notification so that the passed-in font can either be an instance of ig.Font or a path to a font image. If the latter, ig.Notification will create an instance of ig.Font automatically.
 - Added .follow() method that allows an ig.Notification object to follow an entity.
-- Added .setVel() method that sets an ig.Notification vel and will stop it from it an entity if it is.
+- Added .setVel() method that sets an ig.Notification vel and will stop it from following an entity if it is.
 
 ## v.1.1
 

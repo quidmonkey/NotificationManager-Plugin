@@ -2,6 +2,7 @@ ig.module(
     'plugins.notification-manager'
 )
 .requires(
+    'impact.font',
     'impact.impact'
 )
 .defines(function(){
@@ -63,6 +64,7 @@ ig.Notification = ig.Class.extend({
     
     align: ig.Font.ALIGN.LEFT,      //font alignment, defaults to left
     alpha: 1,                       //opacity, 0 = translucent, 1 = opaque
+    entity: null,                   //attached entity
     fadetime: 0.4,                  //how long until note begins to fade
     font: null,            	        //font
     lifetime: 1.2,                  //how long notification should last, set to zero to disable fade
@@ -73,7 +75,12 @@ ig.Notification = ig.Class.extend({
 
         
     init: function( font, text, x, y, settings ) {
-        this.font =  font;
+        if( font instanceof ig.Font ){
+            this.font = font;
+        }
+        else{
+            this.font = new ig.Font( font );
+        }
         this.text = text;
         this.pos.x = x;
         this.pos.y = y;
@@ -106,8 +113,30 @@ ig.Notification = ig.Class.extend({
         //reset canvas alpha
         ctx.globalAlpha = alpha;
     },
+
+    //sets an entity to follow
+    //takes entity as parameter
+    follow: function( ent ){
+        this.entity = ent;
+    },
+
+    //stops following an entity & sets new vel
+    //takes two optional parameters
+    //x specifies a new x vel
+    //y specifies a new y vel
+    setVel: function( x, y ){
+        this.entity = null;
+        this.vel.x = x || 0;
+        this.vel.y = y || 0;
+    },
     
     update: function() {
+        //if following an entity, update vel
+        if( this.entity !== null ){
+            this.vel.x = this.entity.vel.x;
+            this.vel.y = this.entity.vel.y;
+        }
+
         //update position
         this.pos.x += this.vel.x * ig.system.tick;
         this.pos.y += this.vel.y * ig.system.tick;

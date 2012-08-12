@@ -101,7 +101,7 @@ ig.Notification = ig.Class.extend({
     //without the use of the NotificationManager
     draw: function( align, text ){
         //set canvas alpha for fade effect
-        var ctx = ig.system.context, alpha = ctx.alpha;
+        var ctx = ig.system.context, alpha = ctx.globalAlpha;
         ctx.globalAlpha = this.alpha;
         
         //draw font

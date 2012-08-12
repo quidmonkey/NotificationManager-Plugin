@@ -66,7 +66,7 @@ ig.Notification = ig.Class.extend({
     alpha: 1,                       //opacity, 0 = translucent, 1 = opaque
     entity: null,                   //attached entity
     fadetime: 0.4,                  //how long until note begins to fade
-    font: null,            	        //font
+    font: null,                     //font
     lifetime: 1.2,                  //how long notification should last, set to zero to disable fade
     _kill: false,                   //kill note?
     pos: { x: null, y: null },      //position

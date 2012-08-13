@@ -37,7 +37,7 @@ A Notification can accept either an ig.Font object as its first parameter or a p
 You can now set an ig.Notification to follow an entity:
 ```javascript
 var player = ig.game.getEntitiesByType( EntityPlayer )[0];
-var note = new ig.Notification( 'media/font.png', 'Hello World', player.pos.x, player.pos.y );
+var note = new ig.Notification( 'media/font.png', 'Hello World', player.pos.x, player.pos.y - 10 );
 note.follow( player );
 ig.game.myNoteMgr.add( note );
 ```

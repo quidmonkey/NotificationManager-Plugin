@@ -32,7 +32,7 @@ ig.game.myNoteMgr.add( note );
 ```
 A Notification can accept either an ig.Font object as its first parameter or a path to a font image. The NotificationManager also provides find() and remove() methods for managing your notifications. You can also use Notifications sans the NotificationManager.
 
-##New in Versions 1.1.1 
+##New in Version 1.1.1 
 
 You can now set an ig.Notification to follow an entity:
 ```javascript

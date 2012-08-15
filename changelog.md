@@ -1,5 +1,9 @@
 # NotificationManager-Plugin Changelog
 
+## v.1.1.2
+
+- Fixed Alpha
+
 ## v.1.1.1
 
 - Fixed ig.Notification so that the passed-in font can either be an instance of ig.Font or a path to a font image. If the latter, ig.Notification will create an instance of ig.Font automatically.

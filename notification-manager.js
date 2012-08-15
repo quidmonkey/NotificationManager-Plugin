@@ -100,18 +100,20 @@ ig.Notification = ig.Class.extend({
     //both are useful if the note is being drawn
     //without the use of the NotificationManager
     draw: function( align, text ){
-        //set canvas alpha for fade effect
-        var ctx = ig.system.context, alpha = ctx.globalAlpha;
-        ctx.globalAlpha = this.alpha;
-        
+        //cache alpha
+        var alpha = this.font.alpha;
+        this.font.alpha = this.alpha;
+
         //draw font
         this.font.draw( text || this.text,
-                        ig.system.getDrawPos( this.pos.x - ig.game.screen.x ),
-                        ig.system.getDrawPos( this.pos.y - ig.game.screen.y ),
+                        //ig.system.getDrawPos( this.pos.x - ig.game.screen.x ),
+                        //ig.system.getDrawPos( this.pos.y - ig.game.screen.y ),
+                        this.pos.x,
+                        this.pos.y,
                         align || this.align );
         
-        //reset canvas alpha
-        ctx.globalAlpha = alpha;
+        //restore alpha
+        this.font.alpha = alpha;
     },
 
     //sets an entity to follow
@@ -133,14 +135,14 @@ ig.Notification = ig.Class.extend({
     update: function() {
         //if following an entity, update vel
         if( this.entity !== null ){
-            this.vel.x = this.entity.vel.x;
-            this.vel.y = this.entity.vel.y;
+            this.pos.x += this.entity.vel.x * ig.system.tick;
+            this.pos.y += this.entity.vel.y * ig.system.tick;
+        }
+        else{
+            this.pos.x += this.vel.x * ig.system.tick;
+            this.pos.y += this.vel.y * ig.system.tick;
         }
 
-        //update position
-        this.pos.x += this.vel.x * ig.system.tick;
-        this.pos.y += this.vel.y * ig.system.tick;
-        
         //if fading is turned off
         if( !this.fadetime ){
             return;
@@ -150,7 +152,6 @@ ig.Notification = ig.Class.extend({
         var delta = this.lifetime.delta();
         if( delta > 0 ) {
             this._kill = true;
-            return;
         }
         else{
             this.alpha = delta.map( this.fadetime, 0, 1, 0 );

@@ -72,7 +72,10 @@ ig.Notification = ig.Class.extend({
     pos: { x: null, y: null },      //position
     text: '',                       //string to draw
     vel: { x: 0, y: -20 },          //velocity - set to 0 if font doesn't move
-
+    entityOffset: {                       //notification is centered over entity's top center, this offsets the notifications position 
+        x: 0,
+        y: 10
+    },
         
     init: function( font, text, x, y, settings ) {
         if( font instanceof ig.Font ){
@@ -135,8 +138,8 @@ ig.Notification = ig.Class.extend({
     update: function() {
         //if following an entity, update vel
         if( this.entity !== null ){
-            this.pos.x += this.entity.vel.x * ig.system.tick;
-            this.pos.y += this.entity.vel.y * ig.system.tick;
+            this.pos.x += this.entity.pos.x + this.entity.size.x / 2 - this.font.widthForString(this.text) / 2 + this.entityOffset.x;
+            this.pos.y += this.entity.pos.y + this.entity.size.y / 2 - this.font.heightForString(this.text) - this.entityOffset.y;
         }
         else{
             this.pos.x += this.vel.x * ig.system.tick;

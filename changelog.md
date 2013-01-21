@@ -1,5 +1,10 @@
 # NotificationManager-Plugin Changelog
 
+## v.1.1.3
+
+- Fixed follow so that it font now matches entity's position vs. its velocity (submitted by theunstoppablecarl)
+- Added entityOffset property for offseting font's position when following an entity (submitted by theunstoppablecarl)
+
 ## v.1.1.2
 
 - Fixed Alpha
